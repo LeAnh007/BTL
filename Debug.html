@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debug</title>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">Debug</a>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="trangchu.html">Trang Chủ</a>
+          <a class="nav-link" href="quanly.html">Trang Quản Lý</a>
+          <a class="nav-link active" href="Debug.html"
+            >Thử Thách Lập Trình (Debug)</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h2 class="mb-4 text-danger fw-bold">
+        Yêu cầu: Tìm và sửa lỗi hàm deleteRow(index)
+      </h2>
+
+      <div class="alert alert-info">
+        <strong>Mô tả bài tập:</strong> Sinh viên cần đưa đoạn mã gốc gặp lỗi
+        logic vào trang web, tiến hành phân tích các điểm sai và đưa ra khối mã
+        JavaScript hoàn chỉnh đã khắc phục thành công bên dưới.
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+          <h5 class="text-warning">1. Đoạn mã lỗi nguyên văn:</h5>
+          <pre>
+<span class="keyword">function</span> <span class="function">deleteRow</span>(index) {
+    <span class="keyword">let</span> <span class="comment">confirm</span> = confirm(<span class="string">"Bạn có chắc muốn xóa?"</span>);
+    <span class="keyword">if</span> (confirm) {
+        listData.splice(index, 0);
+        renderTable();
+    }
+}
+                </pre>
+        </div>
+
+        <div class="col-md-6 mb-4">
+          <h5 class="text-success">2. Đoạn mã đã sửa lỗi hoàn chỉnh:</h5>
+          <pre>
+<span class="keyword">function</span> <span class="function">deleteRow</span>(index) {
+    <span class="comment">// CHÚ THÍCH LỖI 1: Trùng tên biến trùng với hàm hệ thống.</span>
+    <span class="comment">// Không đặt tên biến là 'let confirm' vì nó sẽ đè lên hàm window.confirm() mặc định.</span>
+    <span class="comment">// Giải pháp: Thay thế tên biến thành 'isConfirmed'.</span>
+    <span class="keyword">let</span> isConfirmed = confirm(<span class="string">"Bạn có chắc muốn xóa?"</span>);
+    
+    <span class="keyword">if</span> (isConfirmed) {
+        <span class="comment">// CHÚ THÍCH LỖI 2: Sai tham số trong hàm splice().</span>
+        <span class="comment">// Cú pháp splice(index, 0) nghĩa là xóa 0 phần tử (tức không xóa gì).</span>
+        <span class="comment">// Giải pháp: Đổi số 0 thành số 1 để xóa chính xác 1 phần tử tại vị trí index.</span>
+        listData.splice(index, 1);
+        
+        <span class="comment">// Gọi lại hàm render để cập nhật giao diện bảng ngay lập tức</span>
+        renderTable();
+    }
+}
+                </pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

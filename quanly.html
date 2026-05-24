@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý nhiệm vụ</title>
+  </head>
+  <link rel="stylesheet" href="./bootstrap.min.css" />
+  <link rel="stylesheet" href="./quanly.css">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">Quản Lý</a>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="trangchu.html">Trang Chủ</a>
+          <a class="nav-link active" href="quanly.html">Trang Quản Lý</a>
+          <a class="nav-link" href="Debug.html">Thử Thách Lập Trình (Debug)</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="form-control" align="center">
+    <h1 >Nhập Phân Công</h1> 
+    <form id="infoForm">
+    
+    <input type="text" placeholder="Tên thành viên" id="fullname">
+    <input type="text" placeholder="Mã sinh viên" id="mssv">
+    <input type="text" placeholder="Nhiệm vụ" id="nv">
+    <input type="text" placeholder="Hạn chót" id="date">
+    <input type="text" placeholder="Ghi chú" id="note"> 
+    <button type="submit" onclick="guithongtin()">Gửi thông tin</button> <hr>
+    </form>
+
+    <h1>Danh sách đã nhập</h1>
+    <table border="1" id="resultTable">
+        <tr>
+            <th>Mã số sinh viên</th>
+            <th>Tên thành viên</th>
+            <th>Nhiệm vụ</th>
+            <th>Hạn chót</th>
+            <th>Ghi chú</th>
+        </tr>
+        </thead>
+        <tbody  id="memberTable">
+            
+        </tbody>
+    </table>
+    </div>
+    <script src="./quanly.js"></script>
+  </body>
+</html>
