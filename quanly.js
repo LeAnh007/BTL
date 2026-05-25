@@ -20,11 +20,6 @@ document
             <td>${ghichu}</td>
         </tr>
     `;
-    const lastDigit = parseInt(mssv.slice(-1), 10);
-            if (lastDigit % 2 !== 0) {
-                table.insertAdjacentHTML('afterbegin', row);
-            } else {
-                table.insertAdjacentHTML('beforeend', row);
-            }
+    tableBody.innerHTML += row;
     document.getElementById("infoForm").reset();
   });
